@@ -30,10 +30,10 @@ The data can be downloaded directely from the [SEC website](https://www.sec.gov/
 
 ### Creating quarterly data
 The same steps as mentioned aboved for the annual data have to be performed. Additionally, the following changes have to be made:
-1) Instead of only loading *10-K* data, *10-Q* data also have to be included.
-4) Instead of keeping the biggest number in the *qtrs* column we now want to keep the smallest. Doing so, we only get data from the actual quarter and no add-ons.
-6)
-8) The *num* file does not contain information about Q4 for some companies (p.e. see Facebook), instead it only gives the full year value in that quarter. Therefore, the Q4 value has to be calculated manually. To do so, the values from Q1 to Q3 have to be substracted from the full year value.
+Step 1: Instead of only loading *10-K* data, *10-Q* data also have to be included.
+Step 4: Instead of keeping the biggest number in the *qtrs* column we now want to keep the smallest. Doing so, we only get data from the actual quarter and no add-ons.
+Step 6:
+Step 8: The *num* file does not contain information about Q4 for some companies (p.e. see Facebook), instead it only gives the full year value in that quarter. Therefore, the Q4 value has to be calculated manually. To do so, the values from Q1 to Q3 have to be substracted from the full year value.
 
 ### Create stock returns
 For strategies like Momentum the stock return for each company is needed. For doing so we load the annual statement data and extract all companies that handed in an annual report for the last year. For all of these companies the stock returns are downloaded from yahoo finance and saved into a DataFrame.
