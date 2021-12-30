@@ -10,4 +10,4 @@ All the data is public available at the [SEC website](https://www.sec.gov/dera/d
 
 ## Editing the data
 
-The data as it comes is not ready to be used in any trading strategy. Several changes and edits have to be made.
+The data as it comes is not ready to be used in any trading strategy. Several changes and edits have to be made. The SEC database offers various parts of the financial and cashflow statements and balance sheet. The used items are declared on top of the code in the list *tags*.
