@@ -52,3 +52,8 @@ This strategy is based on past stock returns of the companies. It goes long on c
 5) To decide which companies to long and short, we are ranking the companies based on the average monthly return in the last 12 month. We go long in the best decile and short the worst decile.
 
 ## Requirements
+
+```
+pip install -r requirements.txt
+
+```
