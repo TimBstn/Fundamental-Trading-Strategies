@@ -1,2 +1,1 @@
-pandas
-numpy
+yfinance>=0.1.67
