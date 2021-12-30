@@ -47,8 +47,8 @@ Seven different strategies are introduced in the app. All of them are based on r
 This strategy is based on past stock returns of the companies. It goes long on companies which performed good in the past and shorts companies with bad performance in the past. After loading the data, the following steps have to be performed:
 1) Yahoo Finance offers the daily close price. In order to make the strategy work, the prices have to be chanaged to daily returns.
 2) Out of the daily returns calculate the monthly return.
-4) We chose a 12 month lookback period, which means the last 12 month create the momentum signal. It has been showed that the period should be inbetween 3 and 12 month.
-5) The paper indicates that the intermediate-term momentum works best, when the dataset is unbiased from recent returns. Therefore remove the latest month
-6) To decide which companies to long and short, we are ranking the companies based on the average monthly return in the last 12 month. We go long in the best decile and short the worst decile.
+3) We chose a 12 month lookback period, which means the last 12 month create the momentum signal. It has been showed that the period should be inbetween 3 and 12 month.
+4) The paper indicates that the intermediate-term momentum works best, when the dataset is unbiased from recent returns. Therefore remove the latest month
+5) To decide which companies to long and short, we are ranking the companies based on the average monthly return in the last 12 month. We go long in the best decile and short the worst decile.
 
 ## Requirements
