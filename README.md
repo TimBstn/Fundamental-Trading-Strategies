@@ -8,7 +8,6 @@ This dash-app gives a brief overview over several trading strategies based on re
 
 All the data is public available at the [SEC website](https://www.sec.gov/dera/data/financial-statement-data-sets.html). Due to the size of these datasets it is not possible to upload that data to GitHub. The users is adviced to look into that data and download it hisself. Save the downloaded datasets into the data folder.
 
-<a name="edit"/>
 ## Editing the data
 
 The data as it comes is not ready to be used in any trading strategy. Several changes and edits have to be made.
