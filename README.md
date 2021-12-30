@@ -3,6 +3,8 @@ This dash-app gives a brief overview over several trading strategies based on re
 
 - [Downloading the data](#downloading-the-data)
 - [Editing the data](#editing-the-data)
+- [Strategies](#strategies)
+- [Requirements](#requirements)
 
 ## Downloading the data
 
@@ -35,10 +37,18 @@ Step 4: Instead of keeping the biggest number in the *qtrs* column we now want t
 Step 6: \
 Step 8: The *num* file does not contain information about Q4 for some companies (p.e. see Facebook), instead it only gives the full year value in that quarter. Therefore, the Q4 value has to be calculated manually. To do so, the values from Q1 to Q3 have to be substracted from the full year value.
 
-### Create stock returns
+### Creating stock returns
 For strategies like Momentum the stock return for each company is needed. For doing so we load the annual statement data and extract all companies that handed in an annual report for the last year. For all of these companies the stock returns are downloaded from yahoo finance and saved into a DataFrame.
 
 ## Strategies
 Seven different strategies are introduced in the app. All of them are based on research papers and have proven to generate profits in the past. 
+
+### Momentum
+This strategy is based on past stock returns of the companies. It goes long on companies which performed good in the past and shorts companies with bad performance in the past. After loading the data, the following steps have to be performed:
+1) Yahoo Finance offers the daily close price. In order to make the strategy work, the prices have to be chanaged to daily returns.
+2) Out of the daily returns calculate the monthly return.
+4) We chose a 12 month lookback period, which means the last 12 month create the momentum signal. It has been showed that the period should be inbetween 3 and 12 month.
+5) The paper indicates that the intermediate-term momentum works best, when the dataset is unbiased from recent returns. Therefore remove the latest month
+6) To decide which companies to long and short, we are ranking the companies based on the average monthly return in the last 12 month. We go long in the best decile and short the worst decile.
 
 ## Requirements
