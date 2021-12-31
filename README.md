@@ -51,6 +51,14 @@ This strategy is based on past stock returns of the companies. It goes long on c
 4) The paper indicates that the intermediate-term momentum works best, when the dataset is unbiased from recent returns. Therefore remove the latest month
 5) To decide which companies to long and short, we are ranking the companies based on the average monthly return in the last 12 month. We go long in the best decile and short the worst decile.
 
+### Equity Pairs
+This strategy takes the stock returns of the companies and finds the most correlated companies to each stock. Following the hypothesis that correlated stocks should have similar returns, it goes long on stocks that underperformed the 50 most correlated companies and shorts stocks that overperformed. A correction of the divergence is assumed. The following steps are needed:
+1) Load stock data from Yahoo Finance and calculate monthly returns.
+2) Calculate the correlation between the returns and for each company select the 50 most correlated companies.
+3) Calculate the expected return for the last month for each stock by taking the average of the return of the 50 companies from step 2)
+4) Calculate the difference between the actual return and expected return.
+5) Create deciles based on the difference. Long the underperforming stocks, which means the worst decile and short the best decile. 
+
 ## Requirements
 
 ```
