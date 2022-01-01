@@ -51,6 +51,14 @@ This strategy is based on past stock returns of the companies. It goes long on c
 4) The paper indicates that the intermediate-term momentum works best, when the dataset is unbiased from recent returns. Therefore remove the latest month
 5) To decide which companies to long and short, we are ranking the companies based on the average monthly return in the last 12 month. We go long in the best decile and short the worst decile.
 
+### Betting against Beta
+This strategy shorts companies with betas over the median beta and longs companies below the median. 
+Steps:
+1) To calculate the beta of a stock, a market return is needed. I chose the Wilshere 5000 (Yahoo Finance: ^W5000) as it covers most of the American market. 
+2) Load and calculate the stock return for each company.
+3) Calculate the beta for each company by dividing the covariance of the stock with the market by the markets variance ([see here for more information on beta](https://www.investopedia.com/terms/b/beta.asp)).
+4) Create the long and short signals explained above.
+
 ### Equity Pairs
 This strategy takes the stock returns of the companies and finds the most correlated companies to each stock. Following the hypothesis that correlated stocks should have similar returns, it goes long on stocks that underperformed the 50 most correlated companies and shorts stocks that overperformed. A correction of the divergence is assumed. The following steps are needed:
 1) Load stock data from Yahoo Finance and calculate monthly returns.
