@@ -54,6 +54,11 @@ This strategy is based on past stock returns of the companies. It goes long on c
 ### Accruals Anatomy
 This strategy compares the quality of the earnings for each company. If the earnings are driven by accruals, go short, if they are driven by cash, go long. The accruals are calculated as followed:
 <img src="img/accruals.png?raw=true"/>
+unfortunately, the SEC has no equivalent to the STD column and therefore it was ignored (if you found one, please let me know). The following steps are performed:
+1) Load the annual financial SEC database.
+2) Create the delta columns for assets, liabilities, cash and taxes.
+3) For every company keep the latest statement. That statement should be handed in in the last two years, else the company is ignored.
+4) Only keep companies that filled in all the needed tags from above.
 
 ### Betting against Beta
 This strategy shorts companies with betas over the median beta and longs companies below the median. 
