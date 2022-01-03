@@ -25,16 +25,16 @@ The data can be downloaded directely from the [SEC website](https://www.sec.gov/
 1) The sub file works as a mapping file. It includes information about the companies name, SIC-group, zip and so on. The form column gives information about the type of the statement the information is coming from. To get annual data, this columns has to be set to *10-K*. The column *adsh* includes a code connecting the *num* and *sub* files. It contains unique information about the company and form  (p.e. every company in every year has an unique code).
 2) Exploring the data, some inconveniences can be found. Normally, every company should only hand in one annual statement per year. Analyzing the data it can be found that some companies handed in their 10-K file more often. to avoid duplicates, you should only keep the newest version based on the columns filed and accepted.
 3) On the cik code map the company ticker.
-4) The next step is editting the *num* file. The *num* file includes the actual values of the statements and the *tag* column gives information about the part of the statement. Depending on the quarter, the file also gives information about the last year and last quarters value. These information are not wanted and therefor have to be dropped. We achieve that by grouping the data on the *adsh* and *tag* columns and only keeping the latest date. Additionally, the quarter (*qtrs*) has to be set to the maximum (1 indicates only the current quarter is included, 4 includes the last 4 quarters and therefor the whole year).
+4) The next step is editting the *num* file. The *num* file includes the actual values of the statements and the *tag* column gives information about the part of the statement. Depending on the quarter, the file also gives information about the last year and last quarters value. These information are not wanted and therefor have to be dropped. We achieve that by grouping the data on the *adsh* and *tag* columns and only keeping the latest date. 
 5) Merge *num* and *sub* files on the *adsh* column to get whole database for that year.
-6) Lastly, some companies (based on the cik) have more than one annual statement (p.e. after a merger). As there is no way to conclude which statement is the actual statement of the mother company, both statements are dropped.
-7) Due to the size of the final annual database it has to be saved as a gzip file.
+7) Lastly, some companies (based on the cik) have more than one annual statement (p.e. after a merger). As there is no way to conclude which statement is the actual statement of the mother company, both statements are dropped.
+8) Create a database with all the tags in the columns by pivotting the column *tag*.
+9) Due to the size of the final annual database it has to be saved as a gzip file.
 
 ### Creating quarterly data
 The same steps as mentioned aboved for the annual data have to be performed. Additionally, the following changes have to be made: \
 Step 1: Instead of only loading *10-K* data, *10-Q* data also have to be included.\
-Step 4: Instead of keeping the biggest number in the *qtrs* column we now want to keep the smallest. Doing so, we only get data from the actual quarter and no add-ons.\
-Step 6: \
+Step 5: \
 Step 8: The *num* file does not contain information about Q4 for some companies (p.e. see Facebook), instead it only gives the full year value in that quarter. Therefore, the Q4 value has to be calculated manually. To do so, the values from Q1 to Q3 have to be substracted from the full year value.
 
 ### Creating stock returns
