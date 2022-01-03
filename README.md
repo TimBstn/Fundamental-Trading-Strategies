@@ -28,7 +28,7 @@ The data can be downloaded directely from the [SEC website](https://www.sec.gov/
 4) The next step is editting the *num* file. The *num* file includes the actual values of the statements and the *tag* column gives information about the part of the statement. Depending on the quarter, the file also gives information about the last year and last quarters value. These information are not wanted and therefor have to be dropped. We achieve that by grouping the data on the *adsh* and *tag* columns and only keeping the latest date. 
 5) Merge *num* and *sub* files on the *adsh* column to get whole database for that year.
 7) Lastly, some companies (based on the cik) have more than one annual statement (p.e. after a merger). As there is no way to conclude which statement is the actual statement of the mother company, both statements are dropped.
-8) Create a database with all the tags in the columns by pivotting the column *tag*.
+8) Create a database with all the tags in the columns by pivoting the column *tag*.
 9) Due to the size of the final annual database it has to be saved as a gzip file.
 
 ### Creating quarterly data
@@ -50,6 +50,10 @@ This strategy is based on past stock returns of the companies. It goes long on c
 3) We chose a 12 month lookback period, which means the last 12 month create the momentum signal. It has been showed that the period should be inbetween 3 and 12 month.
 4) The paper indicates that the intermediate-term momentum works best, when the dataset is unbiased from recent returns. Therefore remove the latest month
 5) To decide which companies to long and short, we are ranking the companies based on the average monthly return in the last 12 month. We go long in the best decile and short the worst decile.
+
+### Accruals Anatomy
+This strategy compares the quality of the earnings for each company. If the earnings are driven by accruals, go short, if they are driven by cash, go long. The accruals are calculated as followed:
+<img src="img/accruals.png?raw=true"/>
 
 ### Betting against Beta
 This strategy shorts companies with betas over the median beta and longs companies below the median. 
