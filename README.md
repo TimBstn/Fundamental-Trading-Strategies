@@ -58,7 +58,10 @@ Unfortunately, the SEC has no equivalent to the STD column and therefore it was 
 1) Load the annual financial SEC database.
 2) Create the delta columns for assets, liabilities, cash and taxes.
 3) For every company keep the latest statement. That statement should be handed in in the last two years, else the company is ignored.
-4) Only keep companies that filled in all the needed tags from above. That brings it down to approx. 1500 companies.
+4) Only keep companies that filled in all the needed tags from above. That brings it down to approx. 1400 companies.
+5) Calculate the accruals with the formular given above.
+6) Calculate income rate (Operating Income/ Average Total Assets last two years), accrual component (Accrual/ Avg Assets) and cash component (income rate-accrual component)
+7) Create Signal based on cash component. Long the top 10 stocks and short the worst 10 stops.
 
 ### Betting against Beta
 This strategy shorts companies with betas over the median beta and longs companies below the median. 
