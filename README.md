@@ -43,6 +43,11 @@ For strategies like Momentum the stock return for each company is needed. For do
 ## Strategies
 Seven different strategies are introduced in the app. All of them are based on research papers and have proven to generate profits in the past. 
 
+### Piotroski's F-Score
+This strategy trades on high book to market companies and creates a score based on profitability, capital structure and efficiency measures. Companies with a high score get a long position, low scores are shorted. Perform the followin steps:
+1) Load the annual SEC financial data.
+2) Create the book to market ratio and only keep the top 5 quantile. The book to market ratio is calculated by shareholder's (stockholder's) equity/ market capitalization, where market cap = stock price\* number shares outstanding. Only companies that handed in all these information can be included (approx. 3000). To create the ratio, the financial and stock price databases are merged. Some of the 3000 companies do not have a Yahoo Finance stock price and therefore cannot be used (the number of companies now is approx. 2750). Taking the top 5 quantile leaves us with 550 companies.
+
 ### Momentum
 This strategy is based on past stock returns of the companies. It goes long on companies which performed good in the past and shorts companies with bad performance in the past. After loading the data, the following steps have to be performed:
 1) Yahoo Finance offers the daily close price. In order to make the strategy work, the prices have to be chanaged to daily returns.
