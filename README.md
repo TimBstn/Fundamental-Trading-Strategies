@@ -62,6 +62,15 @@ This strategy trades on high book to market companies and creates a score based 
 6) Only keep companies that have at least 9 measures. Sometimes one measure consist of different financial measures and every company names them differentely. Therefore, it is hard to find the right financial measures in the SEC database.
 7) Create final signal: long companies with score 7 and higher and short companies with score 2 and lower.
 
+### Post Earnings Announcement Drift (PEAD)
+This strategy compares expected earnings and the actual earnings and goes long on companies that overperformed and short on underperformers. Steps:
+1) Load SEC annual financial data and only keep companies which reported earnings per share (EPS)
+2) Only keep companies that have at least 3 annual, so the mean from step 3) gets at least 2 values.
+3) Calculate the expected returns per share by taking the mean of the previous 4 years.
+4) Calculate the unexpected earnings by substracting the expected EPS from the actual.
+5) Calculate standardized unexpected earnings for better comparability between the companies. Therefore, divide the unexpected earnings by the standard deviation of the last 4 years.
+6) Create ranking and signal.
+
 ### Momentum
 This strategy is based on past stock returns of the companies. It goes long on companies which performed good in the past and shorts companies with bad performance in the past. After loading the data, the following steps have to be performed:
 1) Yahoo Finance offers the daily close price. In order to make the strategy work, the prices have to be chanaged to daily returns.
