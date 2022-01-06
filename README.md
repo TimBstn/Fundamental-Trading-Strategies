@@ -59,7 +59,7 @@ This strategy trades on high book to market companies and creates a score based 
 - delta Turnover ratio (tr = revenue / Assets beginning of the year)
 4) Calculate final score as sum of the 9 scores
 5) Only keep latest annual statement for each company
-6) Only keep companies that have at least 9 measures. Sometimes one measure consist of different financial measures and every company names them differentely. Therefore, it is hard to find the right financial measures in the SEC database.
+6) Only keep companies that have at least 5 measures. Sometimes one measure consist of different financial measures and every company names them differentely. Therefore, it is hard to find the right financial measures in the SEC database.
 7) Create final signal: long companies with score 7 and higher and short companies with score 2 and lower.
 
 ### Post Earnings Announcement Drift (PEAD)
@@ -78,6 +78,24 @@ This strategy is based on past stock returns of the companies. It goes long on c
 3) We chose a 12 month lookback period, which means the last 12 month create the momentum signal. It has been showed that the period should be inbetween 3 and 12 month.
 4) The paper indicates that the intermediate-term momentum works best, when the dataset is unbiased from recent returns. Therefore remove the latest month
 5) To decide which companies to long and short, we are ranking the companies based on the average monthly return in the last 12 month. We go long in the best decile and short the worst decile.
+
+### G-Score
+This strategy trades on low book to market firms (growth stocks). It creates a score based on profitability, variability of performance and spending intensity measures. It longs companies with a high score and shorts companies with a low score. Steps:
+1) Load annual financial SEC data
+2) Load book to market ratios (explained in F-Score) and only keep lowest quantile (growth stocks).
+3) Calculate scores. The following measures are important for the strategy:
+- RoA (see F-Score)
+- CFO (see F-Score)
+- Accruals (see F-Score)
+- Variance of RoA
+- Variance of sales (revenue) growth
+- Research & Development intensite = R&D expenses / assets begin of the year
+- Capital expentidure intensity
+- Advertising expense intensity
+In the G-Score the scores are created based on comparisons with companies in the same industry as explained in the ext step.
+4) Create 2-digit-SIC code out of the 4-digit-SIC code. The 2 digit code defines the company's industry. Only keep industry with at least 4 companies in it. Give a score of 1 if a companies measure is over the industry's median, 0 otherwise.
+5) Calculate final score and create the signal. Long companies with score 6 and higher, short companies with score 2 and lower. For that only keep companies with at least 5 measures.
+
 
 ### Accruals Anatomy
 This strategy compares the quality of the earnings for each company. If the earnings are driven by accruals, go short, if they are driven by cash, go long. The accruals are calculated as followed:
