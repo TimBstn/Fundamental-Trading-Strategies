@@ -6,6 +6,8 @@ This dash-app gives a brief overview over several trading strategies based on re
 - [Strategies](#strategies)
 - [Requirements](#requirements)
 
+<img src="img/screenshot1.PNG?raw=true"/>
+
 ## Downloading the data
 
 All the data is public available at the [SEC website](https://www.sec.gov/dera/data/financial-statement-data-sets.html). Due to the size of these datasets it is not possible to upload that data to GitHub. The users is adviced to look into that data and download it hisself. Save the downloaded datasets into the data folder. Additionally, a mapping between cik number and company ticker should be [downloaded](https://www.sec.gov/file/company-tickers) and saved in the data folder.
