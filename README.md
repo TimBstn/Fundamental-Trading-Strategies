@@ -1,5 +1,5 @@
 # Fundamental-Trading-Strategies
-This dash-app gives a brief overview over several trading strategies based on research papers. Analyzed are all companies that handed in their annual statement to the SEC. For every strategy the main findings and the investment strategy are explained as well as long and short positions based on that strategy.
+This dash-app gives a brief overview over several trading strategies based on research papers. Analyzed are all companies that handed in their annual statement to the SEC. For every strategy the main findings and the investment strategy are explained as well as long and short positions based on that strategy. [Acces the app here](strategies-timbstn.pythonanywhere.com)
 
 - [Downloading the data](#downloading-the-data)
 - [Editing the data](#editing-the-data)
